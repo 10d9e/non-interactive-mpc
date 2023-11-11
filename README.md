@@ -5,6 +5,33 @@ The Python code provided is a simulation of a protocol described in the paper [E
 ### Overview
 The protocol in the paper allows multiple parties (nodes) to jointly compute an arithmetic sum-of-products expression while keeping their individual input values secret. It achieves this through a combination of linear secret sharing, masked factors, and a non-interactive computation phase.
 
+### Quickstart
+
+Run `python simulation.py` to execute the simulation.
+
+### How to Run the Code
+
+To run the code in each of these files, you will need a Python environment set up on your machine. If you don't have Python installed, you can download it from [python.org](https://www.python.org/downloads/). Once Python is installed, you can run the scripts from the command line or use an IDE that supports Python.
+
+Here's a step-by-step guide on how to run these files:
+
+1. **Open a Command Line Interface**:
+   - On Windows, you can use Command Prompt or PowerShell.
+   - On macOS or Linux, you can use the Terminal.
+
+2. **Navigate to the Directory**:
+   - Use the `cd` command to navigate to the directory where your Python files are located.
+   - For example: `cd path/to/your/files`
+
+3. **Run the Python Files**:
+   - To run a file, use the command `python filename.py`, replacing `filename.py` with the actual name of your file.
+   - For example:
+     - Run `python protocol.py` to execute the protocol implementation.
+     - Run `python toy.py` to execute the toy example.
+     - Run `python simulation.py` to execute the simulation.
+
+Ensure that each file is self-contained or properly imports any dependencies it might have from the other files. If the files depend on each other (e.g., `simulation.py` might depend on `protocol.py`), make sure they are in the same directory, or the import paths are correctly set up.
+
 ### The Math
 Let's break down the key mathematical concepts and how they are applied:
 
@@ -84,6 +111,22 @@ The Python code simulates a simplified version of this protocol with the followi
 
 ### Relation to the Paper
 This code provides a practical example of the theoretical concepts presented in the paper. While the paper discusses a more complex and secure implementation suitable for real-world applications, this simulation offers an educational insight into how such a protocol operates. It demonstrates the key aspects of secure multi-party computation: maintaining the privacy of individual inputs while allowing a collective computation of a function. 
+
+Certainly! Here's a simple guide to explain the purpose of each Python file you've created and how to run them:
+
+### Explanation of Python Files
+
+1. **protocol.py**
+   - **Purpose**: This file contains the implementation of the secure multi-party computation protocol as described in the paper. It uses insecure parameters to simulate a test environment.
+   - **Key Components**: A simple implementation of the protocol math.
+
+2. **toy.py**
+   - **Purpose**: This file likely contains a simplified or "toy" version of the protocol for educational or demonstration purposes. It's used to illustrate the basic concepts without the complexity of secure cryptographic parameters.
+   - **Key Components**: Includes a simplified version of the node class and the protocol, using smaller, non-secure parameters for easy understanding.
+
+3. **simulation.py**
+   - **Purpose**: This file is used to run a simulation of the protocol, integrating a `SecureNode`. It is set up to demonstrate how the protocol functions in a simulated environment with multiple nodes.
+   - **Key Components**: Includes the instantiation of nodes, distribution of inputs, and the execution of the protocol's preprocessing and computation phases.
 
 In summary, the authors of the [paper](https://nillion.pub/sum-of-products-lsss-non-interactive.pdf) have developed a sophisticated protocol that enhances the capabilities of linear secret sharing schemes while maintaining their security and non-interactivity. The math ensures both the operational feasibility and cryptographic security of the proposed scheme, which is essential for practical applications in secure multi-party computation. The code serves as an illustrative example, showing how the principles of linear secret sharing and non-interactive computation phases can be applied to securely compute sum-of-products expressions in a distributed manner, as described in the referenced paper.
 
