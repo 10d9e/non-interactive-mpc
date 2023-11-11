@@ -2,7 +2,7 @@
 
 The Python code provided is a simulation of a protocol described in the paper [Evaluation of Arithmetic Sum-of-Products Expressions in Linear Secret Sharing Schemes with a Non-Interactive Computation Phase](https://nillion.pub/sum-of-products-lsss-non-interactive.pdf). The protocol is designed for secure multi-party computation (MPC), particularly for evaluating arithmetic expressions in the form of sum-of-products within a linear secret sharing scheme (LSSS), without necessitating interactive communication during the computation phase.
 
-### Overview of the Protocol
+### Overview
 The protocol in the paper allows multiple parties (nodes) to jointly compute an arithmetic sum-of-products expression while keeping their individual input values secret. It achieves this through a combination of linear secret sharing, masked factors, and a non-interactive computation phase.
 
 ### The Math
@@ -27,6 +27,36 @@ Let's break down the key mathematical concepts and how they are applied:
 5. **Correctness and Security**:
    - **Correctness**: The mathematical correctness of the protocol ensures that the final computed value accurately represents the intended sum-of-products expression.
    - **Security**: The security analysis likely involves proving that no participant can deduce more information than intended from their shares or the computation process. This is crucial in preserving the confidentiality of the secret in a secret sharing scheme.
+
+### Protocol
+
+The "Protocol" section of the paper describes the procedure for evaluating arithmetic sum-of-products expressions in linear secret sharing schemes without requiring interactive communication during the computation phase. Let's dissect the math involved in both the preprocessing and computation phases:
+
+### Preprocessing Phase
+1. **Ideal Preprocessing Functionality (`FPREPROC`) for Sum of Products**: 
+   - Sum of products is represented as $$\( z = \sum_{a=1}^{A} \prod_{m=1}^{M_a} x_{am} \)$$.
+   - `FPREPROC` generates a sharing $\( \lambda_{am} \)$ of a random element $\( \lambda_{am} \in \mathbb{Z}_{p-1} \)$ for each input at position $\( (a, m) \)$, where $\( a \in \{1, ..., A\} \)$ and $\( m \in \{1, ..., M_a\} \)$.
+   - For every addend term (indexed by $\( a \)$), the parties compute a sharing $\( [g^{\gamma_a}] \)$ for an element $\( \gamma_a \in \mathbb{Z}_{p-1} \)$ such that $\( \gamma_a = \sum_{m=1}^{M_a} \lambda_{am} \)$.
+
+### Computation Phase
+1. **Expression for Sum of Products**: 
+   - The sum of products is expressed as $$\( z = \sum_{a=1}^{A} y_a \), where \( y_a = \prod_{m=1}^{M_a} x_{am} \)$$.
+
+2. **Computation Protocol ($\( \pi \)$)**: 
+   - **Input Stage**: 
+     - Each party receives a sharing $\( \lambda_{am} \)$ of a mask exponent for every input $\( x_{am} \)$ they contribute to the computation.
+     - They reconstruct $\( \lambda_{am} \)$ and then compute and broadcast $$\( \langle x_{am} \rangle_{\lambda_{am}} = x_{am} \cdot g^{-\lambda_{am}} \in \mathbb{Z}_p^* \)$$.
+   - **Evaluation Stage**: 
+     - For each product (addend term) having index $\( a \)$, parties locally compute $\( [y_a] = [g^{\gamma_a}] \cdot \langle x_{am} \rangle_{\lambda_{am}} \)$.
+   - **Output Stage**: 
+     - Parties reveal $\( z \in \mathbb{F}_p \)$ from its sharing $\( [z] \)$ and output $\( z \)$.
+
+### Mathematical Concepts
+- **Linear Secret Sharing**: The shares are combined linearly to reconstruct the secret.
+- **Masked Factors**: These are used to securely mask the inputs during the computation phase.
+- **Homomorphic Properties**: The protocol leverages the homomorphic properties of the cryptographic primitives to compute the sum-of-products without revealing individual masked factors.
+
+This protocol demonstrates a sophisticated method to compute arithmetic expressions in a secure multi-party computation setting without the need for interactive communication during the computation phase. The math ensures that despite the complexity of the operations involved, the security and privacy of the participants' inputs are maintained throughout the computation.
 
 ### Simulation Details
 The Python code simulates a simplified version of this protocol with the following components:
