@@ -34,13 +34,15 @@ The "Protocol" section of the paper describes the procedure for evaluating arith
 
 ### Preprocessing Phase
 1. **Ideal Preprocessing Functionality (`FPREPROC`) for Sum of Products**: 
-   - Sum of products is represented as $$\( z = \sum_{a=1}^{A} \prod_{m=1}^{M_a} x_{am} \)$$.
-   - `FPREPROC` generates a sharing $\( \lambda_{am} \)$ of a random element $\( \lambda_{am} \in \mathbb{Z}_{p-1} \)$ for each input at position $\( (a, m) \)$, where $\( a \in \{1, ..., A\} \)$ and $\( m \in \{1, ..., M_a\} \)$.
-   - For every addend term (indexed by $\( a \)$), the parties compute a sharing $\( [g^{\gamma_a}] \)$ for an element $\( \gamma_a \in \mathbb{Z}_{p-1} \)$ such that $\( \gamma_a = \sum_{m=1}^{M_a} \lambda_{am} \)$.
+   - Sum of products is represented as $$\( z = \sum_{a=1}^{A} \prod_{m=1}^{M_a} x_{am} \)$$
+   - `FPREPROC` generates a sharing $\( \lambda_{am} \)$ of a random element $\( \lambda_{am} \in \mathbb{Z}_{p-1} \)$ for each input at position $\( (a, m) \)$, where $\( a \in \{1, ..., A\} \)$ and $\( m \in \{1, ..., M_a\} \)$
+   - For every addend term ( indexed by $\( a \)$ ), the parties compute a sharing $\( [g^{\gamma_a}] \)$ for an element $\( \gamma_a \in \mathbb{Z}_{p-1} \)$ such that:
 
+   $$\( \gamma_a = \sum_{m=1}^{M_a} \lambda_{am} \)$$
+   
 ### Computation Phase
 1. **Expression for Sum of Products**: 
-   - The sum of products is expressed as $$\( z = \sum_{a=1}^{A} y_a \), where \( y_a = \prod_{m=1}^{M_a} x_{am} \)$$.
+   - The sum of products is expressed as $$\( z = \sum_{a=1}^{A} y_a \), where \( y_a = \prod_{m=1}^{M_a} x_{am} \)$$
 
 2. **Computation Protocol ($\( \pi \)$)**: 
    - **Input Stage**: 
