@@ -1,19 +1,19 @@
 # Non Interactive Multi Party Computation
 
-The Python code provided is a simulation of a protocol described in the paper "Evaluation of Arithmetic Sum-of-Products Expressions in Linear Secret Sharing Schemes with a Non-Interactive Computation Phase". The protocol is designed for secure multi-party computation (MPC), particularly for evaluating arithmetic expressions in the form of sum-of-products within a linear secret sharing scheme (LSSS), without necessitating interactive communication during the computation phase.
+The Python code provided is a simulation of a protocol described in the paper [Evaluation of Arithmetic Sum-of-Products Expressions in Linear Secret Sharing Schemes with a Non-Interactive Computation Phase](https://nillion.pub/sum-of-products-lsss-non-interactive.pdf). The protocol is designed for secure multi-party computation (MPC), particularly for evaluating arithmetic expressions in the form of sum-of-products within a linear secret sharing scheme (LSSS), without necessitating interactive communication during the computation phase.
 
 ### Overview of the Protocol
 The protocol in the paper allows multiple parties (nodes) to jointly compute an arithmetic sum-of-products expression while keeping their individual input values secret. It achieves this through a combination of linear secret sharing, masked factors, and a non-interactive computation phase.
 
 ### The Math
-Let's break down the key mathematical concepts and how they are applied in the paper:
+Let's break down the key mathematical concepts and how they are applied:
 
 1. **Linear Secret Sharing Schemes (LSSS)**:
-   - **Basics**: In an LSSS, a secret $$\( s \)$ is divided into $$\( n \)$ shares, such that any $$\( t \)$ shares (where $\( t $\) is the threshold) can reconstruct the secret, but fewer than $\( t $\) shares reveal no information about $\( s $\). The most common example is Shamir's Secret Sharing.
+   - **Basics**: In an LSSS, a secret $\( s \)$ is divided into $\( n \)$ shares, such that any $\( t \)$ shares (where $\( t $\) is the threshold) can reconstruct the secret, but fewer than $\( t $\) shares reveal no information about $\( s $\). The most common example is Shamir's Secret Sharing.
    - **Mathematical Representation**: If $\( \{s_1, s_2, ..., s_n\} $\) are the shares of the secret $\( s $\), then in a linear scheme, these shares satisfy a linear equation like $\( a_1s_1 + a_2s_2 + ... + a_ns_n = s $\) for some coefficients $\( \{a_1, a_2, ..., a_n\} $\).
 
 2. **Sum-of-Products Expressions**:
-   - **General Form**: These are expressions of the form $\( \sum_{i=1}^{m} \prod_{j=1}^{n} x_{ij} $\), where $\( x_{ij} $\) are terms (constants or variables) and the expression involves summing up products of these terms.
+   - **General Form**: These are expressions of the form $$\( \sum_{i=1}^{m} \prod_{j=1}^{n} x_{ij} \)$$, where $\( x_{ij} $\) are terms (constants or variables) and the expression involves summing up products of these terms.
    - **Application in LSSS**: The paper discusses evaluating these expressions under the constraints of LSSS, where direct multiplication might not be feasible or secure.
 
 3. **Masked Factors**:
@@ -27,8 +27,6 @@ Let's break down the key mathematical concepts and how they are applied in the p
 5. **Correctness and Security**:
    - **Correctness**: The mathematical correctness of the protocol ensures that the final computed value accurately represents the intended sum-of-products expression.
    - **Security**: The security analysis likely involves proving that no participant can deduce more information than intended from their shares or the computation process. This is crucial in preserving the confidentiality of the secret in a secret sharing scheme.
-
-The mathematics in this paper is advanced, involving concepts from cryptography, number theory, and algebra. The authors seem to have developed a sophisticated protocol that enhances the capabilities of linear secret sharing schemes while maintaining their security and non-interactivity. The math ensures both the operational feasibility and cryptographic security of the proposed scheme, which is essential for practical applications in secure multi-party computation.
 
 ### Simulation Details
 The Python code simulates a simplified version of this protocol with the following components:
@@ -55,7 +53,8 @@ The Python code simulates a simplified version of this protocol with the followi
 ### Relation to the Paper
 This code provides a practical example of the theoretical concepts presented in the paper. While the paper discusses a more complex and secure implementation suitable for real-world applications, this simulation offers an educational insight into how such a protocol operates. It demonstrates the key aspects of secure multi-party computation: maintaining the privacy of individual inputs while allowing a collective computation of a function. 
 
-In summary, the code serves as an illustrative example, showing how the principles of linear secret sharing and non-interactive computation phases can be applied to securely compute sum-of-products expressions in a distributed manner, as described in the referenced paper.
+In summary, the authors of the [paper](https://nillion.pub/sum-of-products-lsss-non-interactive.pdf) have developed a sophisticated protocol that enhances the capabilities of linear secret sharing schemes while maintaining their security and non-interactivity. The math ensures both the operational feasibility and cryptographic security of the proposed scheme, which is essential for practical applications in secure multi-party computation. The code serves as an illustrative example, showing how the principles of linear secret sharing and non-interactive computation phases can be applied to securely compute sum-of-products expressions in a distributed manner, as described in the referenced paper.
+
 
 ### Reference
 - **Paper**: "Evaluation of Arithmetic Sum-of-Products Expressions in Linear Secret Sharing Schemes with a Non-Interactive Computation Phase"
