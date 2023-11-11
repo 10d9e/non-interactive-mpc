@@ -1,4 +1,4 @@
-# non-interactive-mpc
+# Non Interactive Multi Party Computation
 
 The Python code provided is a simulation of a protocol described in the paper "Evaluation of Arithmetic Sum-of-Products Expressions in Linear Secret Sharing Schemes with a Non-Interactive Computation Phase". The protocol is designed for secure multi-party computation (MPC), particularly for evaluating arithmetic expressions in the form of sum-of-products within a linear secret sharing scheme (LSSS), without necessitating interactive communication during the computation phase.
 
